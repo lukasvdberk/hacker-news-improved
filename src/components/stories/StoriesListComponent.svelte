@@ -6,7 +6,7 @@
 
     let stories = []
     onMount(async () => {
-        stories = await StoryService.getLatestStories(2)
+        stories = await StoryService.getLatestStories(10)
     })
 
     function setNewSelectedStory(event) {
