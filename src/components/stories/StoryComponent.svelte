@@ -14,6 +14,7 @@
 
 <style>
     div.container {
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.07),0 3px 1px -2px rgba(0,0,0,0.6),0 1px 5px 0 rgba(0,0,0,0.2);
         background-color: #FFEFE5;
         width: 100%;
         border-radius: 2px;
@@ -22,23 +23,33 @@
 
     div.content {
         display: inline-block;
-        padding: 20px;
+        padding: 10px;
     }
-    span {
+    div.content > span {
         display: block;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
     }
 
     span.index {
         display: inline-block;
-        font-size: 2rem;
-        padding-left: 20px;
+        vertical-align: top;
+        padding-top: 20px;
+        padding-left: 10px;
+        height: 100%;
     }
 </style>
 
-<div on:click={click} class="container">
-    <span class="index">{ index }</span>
-    <div class="content">
-        <span>{ story.title }</span>
-        <span>score: { story.score }</span>
+{#if story}
+    <div on:click={click} class="container">
+        <span class="index">
+            <b>{ index }</b>
+        </span>
+        <div class="content">
+            <span>{ story.title }</span>
+            <span>score: { story.score }</span>
+        </div>
     </div>
-</div>
+{/if}
